@@ -1,9 +1,16 @@
 const express =  require("express");
 const app = express();
 
-const PORT = process.env.PORT || 5000;
+const UserRoutes = require("../routes/UserRoutes");
+
+const PORT = process.env.PORT || 3000;
 
 const connectDb = require("../database/database");
+
+
+app.use(express.json());
+
+app.use('/api/users',UserRoutes);
 
 
 const connectSERVER=async () =>{
